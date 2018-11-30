@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Say_HelloPageController {
 	
-	private static String ip="10.7.84.137:8080";
+	private static String ip="localhost:8080";
 	
 	private static String SendURL; 
 	
@@ -78,18 +78,20 @@ public class Say_HelloPageController {
 			}
 		}else {
 			request.setAttribute("message", "");
+			UserDao.addUser(username, password, email, phone);
+			
+			Cookie emailcookie = new Cookie("email", email);
+			
+			response.addCookie(emailcookie);
+			
+			
+			
 		}
 		
 		
-		UserDao.addUser(username, password, email, phone);
-		
-		
-		Cookie emailcookie = new Cookie("email", email);
-		
-		response.addCookie(emailcookie);
-		
-		
 		return "index.jsp";
+		
+
 	}
 
 
