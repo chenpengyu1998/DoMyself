@@ -13,12 +13,23 @@ public class User {
 	private Date birthday;
 	private String headshot;
 	private String signature;
+	
+	private Date registeredtime;
+	
+	
+	
+	public Date getRegisteredtime() {
+		return registeredtime;
+	}
+
+	public void setRegisteredtime(Date registeredtime) {
+		this.registeredtime = registeredtime;
+	}
+
 	public int getUserid() {
 		return userid;
 	}
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -73,6 +84,16 @@ public class User {
 	public void setSignature(String signature) {
 		this.signature = signature;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", phonenum=" + phonenum + ", registeredtimedate=" + registeredtimedate + ", sex=" + sex
+				+ ", birthday=" + birthday + ", headshot=" + headshot + ", signature=" + signature + ", registeredtime="
+				+ registeredtime + "]";
+	}
+	
+	
 	
 	
 	
