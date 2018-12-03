@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.DoMyself.Dao.UserDao;
+import org.DoMyself.util.MyQueryForOne;
 import org.DoMyself.util.SendEmail;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Say_HelloPageController {
 	
-	private static String ip="10.7.84.137:8080";
+	private static String ip="localhost:8080";
 	
 	private static String SendURL; 
 	
@@ -50,31 +51,47 @@ public class Say_HelloPageController {
 	
 	@RequestMapping("/verify")
 	public static String verify(@RequestParam("username") String username,@RequestParam("email") String email,@RequestParam("password") String password,@RequestParam("repassword") String repassword,@RequestParam("phone") String phone,HttpServletRequest request,HttpServletResponse response) {
-		System.out.println(email+"\n"+password+"\n"+repassword+"\n");
+		
+		
+		
 		if(!password.equals(repassword)) {
-			String message = "密码和确认密码不一致";
-			request.setAttribute("message", message);
+		
+			request.setAttribute("message", "密码和确认密码不一致");
 			try {
 				request.getRequestDispatcher("register.jsp?email="+email).forward(request, response);
-				
 			} catch (IOException | ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}else {
+			request.setAttribute("message", "");
+		}
+		
+		int count = MyQueryForOne.MyQueryForOne("select count(*) from user where email='"+email+"'");
+		if(count!=0) {
+			request.setAttribute("message", "email重复使用");
+			try {
+				request.getRequestDispatcher("register.jsp?email="+email).forward(request, response);
+			} catch (ServletException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else {
 			request.setAttribute("message", "");
+			UserDao.addUser(username, password, email, phone);
+			
+			Cookie emailcookie = new Cookie("email", email);
+			
+			response.addCookie(emailcookie);
+			
+			
+			
 		}
 		
 		
-		UserDao.addUser(username, password, email, phone);
-		
-		
-		
-		
-		
-		
-		
 		return "index.jsp";
+		
+
 	}
 
 
