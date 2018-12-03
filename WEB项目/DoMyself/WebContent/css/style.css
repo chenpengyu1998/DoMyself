@@ -54,7 +54,7 @@ theme.
 
 */
 
-
+form
 
 
 /* GOOGLE FONTS */
@@ -518,11 +518,12 @@ footer{position: relative;}
 .contact form input[type="password"]{ width: 100%; height: 62px; border: 1px solid #ccc; padding: 0 20px;}
 .contact form textarea{ width: 100%; height: 240px; float: left; line-height: 26px; border: 1px solid #ccc; padding: 20px;text-indent:2em; font-size:20px;}
 .contact form button[type="submit"]{height: 60px; line-height: 58px; display: inline-block; border:none; padding: 0 40px; font-size: 11px; font-weight: 700; color: #fff; background: #131314; overflow: hidden;}
+.contact form button[type="button"]{height: 60px; line-height: 58px; display: inline-block; border:none; padding: 0 40px; font-size: 11px; font-weight: 700; color: #fff; background: #131314; overflow: hidden;}
 .contact form button a{color: #ffffff}
 .contact .alert{ width:100%; float:left;}
 .contact #success, .contact #error {display:none}
 .contact #success, .contact #error { float:left;}
-.contact #contact label.error{ width:100%; color:#f50c1a; margin-top: 10px; text-align: center;}
+.contact #contact label.error{ width:100%; color:#f50c1a; margin-top: 10px; text-align: center;}form
 .contact #contact input.error  {width:100%; border:1px solid #f50c1a;}
 .contact #contact textarea.error{width:100%; border:1px solid #f50c1a;}
 .map{ width: 70%; height: 420px; display: inline-block; margin:0 15%;  background: #f50c1a; display: none;}
