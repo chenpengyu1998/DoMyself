@@ -155,7 +155,8 @@
 
         <div class="form-group col-12">
           <label><span>密 码</span></label>
-          <input type="password" name="password" id="password" required>
+          <input type="password" name="password" id="password" required/>
+          <a href="findpwd.html">忘记密码</a>
         </div>
        
         <!-- end form-group -->
