@@ -36,7 +36,7 @@ public class Say_HelloPageController {
 		
 		se.setAcceptEmailAddress(email);
 		se.setSendContent(se.getSendContent()+"<br/><a href='"+SendURL+"'>点击链接加入</a>");
-		//se.setSendContent("<a href='http://www.baidu.com/email=1145693809@qq.com'>click</a>");
+		
 		se.sendVerifyEmail();
 		
 		

@@ -39,6 +39,7 @@ public class SendEmail {
 	   
 	public SendEmail() {
 		sendContent="欢迎加入DoMyselfTeam组织， ";
+		sendSubject="DoMyslef网站发来的申请";
 	}
 	
 	

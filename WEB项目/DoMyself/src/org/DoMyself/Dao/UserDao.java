@@ -14,17 +14,36 @@ public class UserDao {
 		int num = jdbcTemplate.update("INSERT INTO user(username,password,email,phonenum,registeredtime) VALUE(?,?,?,?,?)", username,password,email,phone,date);
 	}	
 	
-	public static User findUser(String username) {
+	public static User findUserByUsername(String username) {
 		
 		String sql = "select * from user where username = ?";
 		
 		User user = new User();
 		JdbcTemplate jdbcTemplate = MyJdbcTemplate.getJdbcTemplate();
 		user = jdbcTemplate.queryForObject(sql,new MyRowMapper() , username);
-		
-		
-		
+			
 		return user;
 	}
+	
+	public static int updateUserPassword(String email,String password) {
+		String sql= "update user set password = ? where email = ?";
+		JdbcTemplate jdbcTemplate = MyJdbcTemplate.getJdbcTemplate();
+		int rows = jdbcTemplate.update(sql,password,email);
+		return rows;
+		
+	}
+	
+	public static User findUserByEmail(String email) {
+		
+		String sql = "select * from user where email = ?";
+		
+		User user = new User();
+		JdbcTemplate jdbcTemplate = MyJdbcTemplate.getJdbcTemplate();
+		user = jdbcTemplate.queryForObject(sql,new MyRowMapper() , email);
+			
+		return user;
+	}
+	
+	
 	
 }

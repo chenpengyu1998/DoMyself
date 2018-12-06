@@ -1,6 +1,7 @@
 <%@page import="java.net.URLDecoder"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,9 +30,6 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-
-
-
 <body>
 
 
@@ -54,11 +52,11 @@
 
   <ul class="hamburger-navigation">
     <li><a href="index.jsp">主页</a> </li>
-    <li><a href="anchor.html">我的</a> </li>
-    <li><a href="showcase.html">社区</a> </li>
-    <li><a href="id.html">ID<span>BETA</span></a> </li>
+    <li><a href="anchor.jsp">我的</a> </li>
+    <li><a href="showcase.jsp">社区</a> </li>
+    <li><a href="id.jsp">ID<span>BETA</span></a> </li>
     <li><a href="say-hello.jsp">Say Hello</a> </li>
-    <li><a href="builder.html">制作人员</a> </li>
+    <li><a href="builder.jsp">制作人员</a> </li>
   </ul>
 <!-- end hamburger-navigation -->
 <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -122,52 +120,27 @@
   <div class="row justify-content-md-center">
     <div class="col-12 wow fadeInUp">
       <div class="titles">
-        <h5>Hello</h5>
-        <h2>立即登录</h2>
+        <h5></h5>
+        <h2>找回密码</h2>
       </div>
       <!-- end titles --> 
     </div>
     <!-- end col-12 -->
   </div>
-  	   <div align="center">
-	   	 <c:if test="${not empty message }">
-		      <b><font color="red" >
-		     	 <% out.print(request.getAttribute("message")); %>
-		     	 </font>
-		      </b>
-	     </c:if>
-      </div>
-  
-
-  
-  
-  
-  
-  
   <!-- end row -->
   <div class="row justify-content-md-center">
     <div class="col-md-8 col-sm-12 col-12 wow fadeIn">
-      <form class="row inner" method="post" action="login">
+      <form class="row inner"  method="post" action="findPassword">
 
         <!-- end form-group -->
         <div class="form-group col-12" >
-          <label><span>用户名</span></label>
-          <input type="text" name="username" id="username"  required>
+          <label><span>邮 箱</span></label>
+          <input type="text" name="email" id="email" required>
         </div>
         <!-- end form-group -->
-
-        <div class="form-group col-12">
-          <label><span>密 码</span></label>
-          <input type="password" name="password" id="password" required/>
-          <a href="findpwd.jsp">忘记密码</a>
-        </div>
+        <div class="form-group col-12 text-center">
        
-        <!-- end form-group -->
-        <div class="form-group col-12 text-center" id="login">
-          <button id="submit" type="submit" name="submit"> 登  录 </button>
-        </div>
-        <div class="form-group col-12 text-center" id="login">
-          <a href="say-hello.jsp"><button id="submit" type="button" name="submit">注  册</button></a>
+          <button id="chuce" type="submit" name="submit">发 送 邮 件</a></button>
         </div>
         <!-- end form-group -->
 
@@ -177,6 +150,18 @@
     <!-- end col-8 -->
 
 
+
+
+    <!--提交成功或失败-->
+    <div class="col-md-8 col-sm-12 col-12">
+        <div id="success" class="alert alert-success" role="alert">Successfully!</div>
+        <!-- end success -->
+        <div id="error" class="alert alert-danger" role="alert"> Something went wrong, try again. </div>
+        <!-- end error --> 
+      </div>
+      <!-- end col-8 --> 
+    </div>
+    <!-- end row --> 
   </div>
   <!-- end container -->
   <div class="map" id="map"></div>
