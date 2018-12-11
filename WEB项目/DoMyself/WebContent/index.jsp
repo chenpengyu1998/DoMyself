@@ -274,7 +274,7 @@
 <footer class="footer"> <img src="images/logo.png" alt="Image">
   <h4><b>随时随地的创意</b></h4>
   <h2><b>我们欢迎具有创造力的你</b></h2>
-  <a href="say-hello.jsp" class="btn-contact"><span data-hover="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DO . Myself">立 即 加 入 DoMyself</span></a>
+  <a href="say-hello.jsp" class="btn-contact"><span data-hover="DO . Myself">立 即 加 入 DoMyself</span></a>
   <div class="footer-bar"><span class="pull-right">Site created by Stefan</span> </div>
   <!-- end footer-bar --> 
 </footer>
