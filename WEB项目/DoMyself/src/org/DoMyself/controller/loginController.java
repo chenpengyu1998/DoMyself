@@ -47,6 +47,11 @@ public class loginController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			Cookie[] cookie = request.getCookies();
+			Cookie usernameC = new Cookie("username", username);
+			response.addCookie(usernameC);
+			
 		
 		return "index.jsp";
 	}

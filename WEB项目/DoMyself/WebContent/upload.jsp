@@ -51,12 +51,12 @@
 
 
   <ul class="hamburger-navigation">
-    <li><a href="index.html">主页</a> </li>
-    <li><a href="anchor.html">我的</a> </li>
-    <li><a href="showcase.html">社区</a> </li>
-    <li><a href="id.html">ID<span>BETA</span></a> </li>
-    <li><a href="say-hello.html">Say Hello</a> </li>
-    <li><a href="builder.html">制作人员</a> </li>
+    <li><a href="index.jsp">主页</a> </li>
+    <li><a href="anchor.jsp">我的</a> </li>
+    <li><a href="showcase.jsp">社区</a> </li>
+    <li><a href="id.jsp">ID<span>BETA</span></a> </li>
+    <li><a href="say-hello.jsp">Say Hello</a> </li>
+    <li><a href="builder.jsp">制作人员</a> </li>
   </ul>
 <!-- end hamburger-navigation -->
 <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -100,11 +100,23 @@
   <!-- end video-bg -->
 
 
+	<%
+		String username="游客";
+		Cookie[] cookies = request.getCookies();
+		for(Cookie cookie : cookies){
+			if(cookie.getName().equals("username")){
+				username = cookie.getValue();
+			}
+		}
+		
+	%>
+
+
 
 
   <div class="inner">
       <a href="signal.html"><img src="images/default (2).jpg"></a>
-      <span id="username"><h3><b><a href="signal.html">Stefan张</a></b></h3></span>
+      <span id="username"><h3><b><a href="signal.html"><%=username %></a></b></h3></span>
       <span id="userline"><h4>Do.Myself 做自己</h4></span>
   </div>
   <!-- end inner --> 
@@ -128,14 +140,14 @@
   <!-- end row -->
   <div class="row justify-content-md-center">
     <div class="col-md-8 col-sm-12 col-12 wow fadeIn">
-      <form class="row inner" id="contact" name="contact" method="post">
+      <form class="row inner"  method="post" action="uploadPic" enctype="multipart/form-data">
         <div class="form-group col-12">
           <label><span>作 品 名</span></label>
-          <input type="text" name="workname">
+          <input type="text" name="workname" id="workname">
         </div>
         <div class="form-group col-12">
           <label><span>描 述</span></label>
-          <textarea name="subject" id="sureword" required></textarea>
+          <textarea name="showword" id="showword" required></textarea>
         </div>
         <!-- end form-group -->
 
@@ -147,7 +159,7 @@
               <svg class="icon addImg" aria-hidden="true">
                 <use xlink:href="#icon-tianjiatupian"></use>
               </svg>
-              <input name="url" type="file" class="upload_input" onChange="preview(this)"/>
+              <input name="url"  id="url" type="file" class="upload_input" onChange="preview(this)"/>
               <div class="preview"></div>
               <div class="click" onClick="loadImg(this)"></div>
               <div class="delete" onClick="deleteImg(this)">
@@ -160,7 +172,7 @@
               <svg class="icon addImg" aria-hidden="true">
                 <use xlink:href="#icon-tianjiatupian"></use>
               </svg>
-              <input name="url" type="file" class="upload_input" onChange="preview(this)"/>
+              <input name="url" id="url" type="file" class="upload_input" onChange="preview(this)"/>
               <div class="preview"></div>
               <div class="click" onClick="loadImg(this)"></div>
               <div class="delete" onClick="deleteImg(this)">
@@ -173,7 +185,7 @@
               <svg class="icon addImg" aria-hidden="true">
                 <use xlink:href="#icon-tianjiatupian"></use>
               </svg>
-              <input name="url" type="file" class="upload_input" onChange="preview(this)"/>
+              <input id="url" name="url" type="file" class="upload_input" onChange="preview(this)"/>
               <div class="preview"></div>
               <div class="click" onClick="loadImg(this)"></div>
               <div class="delete" onClick="deleteImg(this)">
@@ -186,7 +198,7 @@
               <svg class="icon addImg" aria-hidden="true">
                 <use xlink:href="#icon-tianjiatupian"></use>
               </svg>
-              <input name="url" type="file" class="upload_input" onChange="preview(this)"/>
+              <input name="url" id="url" type="file" class="upload_input" onChange="preview(this)"/>
               <div class="preview"></div>
               <div class="click" onClick="loadImg(this)"></div>
               <div class="delete" onClick="deleteImg(this)">
@@ -199,7 +211,7 @@
               <svg class="icon addImg" aria-hidden="true">
                 <use xlink:href="#icon-tianjiatupian"></use>
               </svg>
-              <input name="url" type="file" class="upload_input" onChange="preview(this)"/>
+              <input name="url" id="url" type="file" class="upload_input" onChange="preview(this)"/>
               <div class="preview"></div>
               <div class="click" onClick="loadImg(this)"></div>
               <div class="delete" onClick="deleteImg(this)">
@@ -212,7 +224,7 @@
               <svg class="icon addImg" aria-hidden="true">
                 <use xlink:href="#icon-tianjiatupian"></use>
               </svg>
-              <input name="url" type="file" class="upload_input" onChange="preview(this)"/>
+              <input name="url" id="url" type="file" class="upload_input" onChange="preview(this)"/>
               <div class="preview"></div>
               <div class="click" onClick="loadImg(this)"></div>
               <div class="delete" onClick="deleteImg(this)">
@@ -241,14 +253,6 @@
 
 
     <!--提交成功或失败-->
-    <div class="col-md-8 col-sm-12 col-12">
-        <div id="success" class="alert alert-success" role="alert"> Your message was sent successfully!</div>
-        <!-- end success -->
-        <div id="error" class="alert alert-danger" role="alert"> Something went wrong, try refreshing and submitting the form again. </div>
-        <!-- end error --> 
-      </div>
-      <!-- end col-8 --> 
-    </div>
     <!-- end row --> 
   </div>
   <!-- end container -->
@@ -332,8 +336,6 @@ function preview(file) {
 <script src="js/contact.form.min.js"></script> 
 <script src="js/jquery.form.min.js"></script> 
 <script src="js/jquery.validate.min.js"></script> 
-<script src="http://ditu.google.cn/maps/api/js?sensor=false"></script> 
-<script src="js/googlemaps.min.js"></script>
 <script type="text/javascript" src="js/svg.js"></script>
 <script type="text/javascript" src="js/jquery.min2.js"></script>
 </body>
