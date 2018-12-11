@@ -50,13 +50,13 @@
 
 
 
-  <ul class="hamburger-navigation">
+   <ul class="hamburger-navigation">
     <li><a href="index.jsp">主页</a> </li>
     <li><a href="anchor.jsp">我的</a> </li>
     <li><a href="showcase.jsp">社区</a> </li>
     <li><a href="id.jsp">ID<span>BETA</span></a> </li>
-    <li><a href="say-hello.jsp">Say Hello</a> </li>
-    <li><a href="builder.jsp">制作人员</a> </li>
+    <li><a href="login.jsp">Say Hello</a> </li>
+    <li><a href="builder.html">制作人员</a> </li>
   </ul>
 <!-- end hamburger-navigation -->
 <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
