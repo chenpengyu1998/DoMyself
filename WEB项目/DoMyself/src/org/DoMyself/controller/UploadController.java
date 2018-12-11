@@ -57,6 +57,7 @@ public class UploadController {
 	                    pic.setPicturename(workname);
 	                    pic.setPicturemessage(showword);
 	                    pic.setPictureurl(PicURL);
+	                    pic.setUsername(username);
 	                    PicDao.insertPic(pic);
 	                    //以写字节的方式写文件  
 	                    int b = 0;  

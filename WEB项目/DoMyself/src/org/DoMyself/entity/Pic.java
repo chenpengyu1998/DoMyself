@@ -4,6 +4,7 @@ public class Pic {
 	private String pictureurl;
 	private String picturename;
 	private String picturemessage;
+	private String username;
 	public String getPictureurl() {
 		return pictureurl;
 	}
@@ -22,4 +23,12 @@ public class Pic {
 	public void setPicturemessage(String picturemessage) {
 		this.picturemessage = picturemessage;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	
 }

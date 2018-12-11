@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿<%@page import="java.net.URLDecoder"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -67,7 +70,7 @@
   <header class="header">
     <div class="logo"><img src="images/logo.png" alt="Image"></div>
     <!-- end logo --> 
-    <span class="phone"></span>
+    <span class="phone"><h3></h3></span>
     <div class="hamburger" id="hamburger">
       <div class="hamburger__line hamburger__line--01">
         <div class="hamburger__line-in hamburger__line-in--01"></div>
@@ -89,16 +92,32 @@
     <div class="equalizer"> <span></span> <span></span> <span></span> <span></span> </div>
     <!-- end equalizer -->
   </header>
+    <ul class="social-bar">
+     <li><a href="#">1</a></li>
+     <li><a href="#">2</a></li>
+     <li><a href="#">3</a></li>
+     <li><a href="#">...</a></li>
+    </ul>
   <section class="int-hero">
     <div class="video-bg">
       <video src="videos/video.mp4" muted autoplay loop></video>
     </div>
     <!-- end video-bg -->
-
+	<%
+		String name = "游客";
+		Cookie[] cookies = request.getCookies();
+		for(Cookie cookie : cookies){
+			if(cookie.getName().equals("username")){
+				name = cookie.getValue();
+			}
+		}
+	%>
 
     <!--大标题-->
     <div class="inner">
-      <h1><b>欢迎来到 Do.Myself 社区</b></h1>
+      <a href="signal.html"><img src="images/default (2).jpg"></a>
+      <span><h3><b><a href="signal.html"><%=name %></a></b></h3></span>
+      <span><h4>Do.Myself 做自己</h4></span>
     </div>
     <!-- end inner --> 
   </section>
@@ -119,8 +138,8 @@
             <!-- end bg-color -->
             <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
             <!-- end brand -->
-            <h5>Digital Creative Works</h5>
-            <small>WEB, UI-UX, CODING</small> </a> </figcaption>
+            <h5>作品1</h5>
+            <small>时间 1</small> </a> </figcaption>
         </figure>
       </div>
       <!-- end grid-item -->
@@ -228,10 +247,9 @@
 <div class="footer-spacing"></div>
 <!-- end footer-spacing -->
 <footer class="footer"> <img src="images/logo.png" alt="Image">
-  <h4><b>随时随地的创意</b></h4>
-  <h2><b>我们欢迎具有创造力的你</b></h2>
-  <a href="say-hello.html" class="btn-contact"><span data-hover="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DO . Myself">立 即 加 入 DoMyself</span></a>
-  <div class="footer-bar"><span class="pull-right">Site created by Stefan</span> </div>
+  <h2>Do . Myself</h2>
+
+  <div class="footer-bar"> <span class="pull-left"></span> <span class="pull-right">Site created by Stefan</span> </div>
   <!-- end footer-bar --> 
 </footer>
 <!-- end footer -->
@@ -240,12 +258,12 @@
 <!-- JS FILES --> 
 <script src="js/jquery.min.js"></script> 
 <script>
-	
-		(function($) {
-			$(window).load(function(){
-				$("body").addClass("page-loaded");	
-			});
-		})(jQuery)
+  
+    (function($) {
+      $(window).load(function(){
+        $("body").addClass("page-loaded");  
+      });
+    })(jQuery)
 </script> 
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/swiper.min.js"></script> 
