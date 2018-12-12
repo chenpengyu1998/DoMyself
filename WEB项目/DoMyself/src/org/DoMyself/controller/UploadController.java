@@ -3,6 +3,8 @@ package org.DoMyself.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,11 @@ public class UploadController {
 	
 	@RequestMapping("/uploadPic")
 	public static String uploadPic(@RequestParam("workname") String workname, @RequestParam("url") CommonsMultipartFile[] files,@RequestParam("showword") String showword,HttpServletRequest request,HttpServletResponse response) {
-		 for(int i = 0;i<files.length;i++){  
+		
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyMMddHHmmss");
+		String dateString = formatter.format(date);
+		for(int i = 0;i<files.length;i++){  
 	            if(files[i].isEmpty()) {
 	            	continue;
 	            }
@@ -58,6 +64,7 @@ public class UploadController {
 	                    pic.setPicturemessage(showword);
 	                    pic.setPictureurl(PicURL);
 	                    pic.setUsername(username);
+	                    pic.setMessageid(dateString);
 	                    PicDao.insertPic(pic);
 	                    //以写字节的方式写文件  
 	                    int b = 0;  

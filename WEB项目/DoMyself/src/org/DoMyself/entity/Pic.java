@@ -2,6 +2,7 @@ package org.DoMyself.entity;
 
 public class Pic {
 	private String pictureurl;
+	private String messageid;
 	private String picturename;
 	private String picturemessage;
 	private String username;
@@ -28,6 +29,12 @@ public class Pic {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getMessageid() {
+		return messageid;
+	}
+	public void setMessageid(String messageid) {
+		this.messageid = messageid;
 	}
 	
 	

@@ -6,11 +6,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class PicDao {
 	public static void insertPic(Pic pic) {
-		String sql = "INSERT INTO picturetable(pictureurl,picturename,picturemessage,username) VALUES(?,?,?,?)";
+		String sql = "INSERT INTO picturetable(pictureurl,picturename,picturemessage,username,messageid) VALUES(?,?,?,?,?)";
 		
 		
 		JdbcTemplate jdbcTemplate = MyJdbcTemplate.getJdbcTemplate();
-		jdbcTemplate.update(sql,pic.getPictureurl(),pic.getPicturename(),pic.getPicturemessage(),pic.getUsername());
+		jdbcTemplate.update(sql,pic.getPictureurl(),pic.getPicturename(),pic.getPicturemessage(),pic.getUsername(),pic.getMessageid());
 		
 		
 	}
