@@ -50,6 +50,7 @@
 
 
   <ul class="hamburger-navigation">
+  <li><br></li>
     <li><a href="index.jsp">主页</a></li>
     <li><a href="anchor.jsp">我的</a> </li>
     <li><a href="showcase.jsp">社区</a> </li>
