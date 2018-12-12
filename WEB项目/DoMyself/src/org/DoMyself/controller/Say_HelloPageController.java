@@ -43,7 +43,7 @@ public class Say_HelloPageController {
 		
 		
 		response.addCookie(emailCookie);
-		return "index.jsp";
+		return "login.jsp";
 	}
 	
 	
@@ -89,7 +89,7 @@ public class Say_HelloPageController {
 		}
 		
 		
-		return "index.jsp";
+		return "login.jsp";
 		
 
 	}
