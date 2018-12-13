@@ -50,7 +50,6 @@
 
 
   <ul class="hamburger-navigation">
-  <li><br></li>
     <li><a href="index.jsp">主页</a></li>
     <li><a href="anchor.jsp">我的</a> </li>
     <li><a href="showcase.jsp">社区</a> </li>
@@ -127,118 +126,25 @@
     <div class="works">
       <div class="grid-sizer"></div>
       <!-- end grid-sizer -->
-
-
+	
+	
 
 
       <!--图区-->
+	<c:forEach items="${pics }" var="i">
       <div class="grid-item-double one">
-        <figure class="reveal-effect se2-white wow perspective-box"> <img src="images/works01.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works01.jpg">
+        <figure class="reveal-effect se2-white wow perspective-box"> <img src="${i.pictureurl}" alt="ERROR">
+          <figcaption> <a data-fancybox="gallery" href="${i.pictureurl}">
             <div class="bg-color" data-background="#2095f4"></div>
             <!-- end bg-color -->
             <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
             <!-- end brand -->
-            <h5>作品1</h5>
-            <small>时间 1</small> </a> </figcaption>
+            <h5>${i.picturename}</h5>
+            <small>${i.picturemessage}</small> </a> </figcaption>
         </figure>
       </div>
-      <!-- end grid-item -->
-      <div class="grid-item-double two">
-        <figure class="reveal-effect se2-white wow perspective-box"><img src="images/works02.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works02.jpg">
-            <div class="bg-color" data-background="#ffc509"></div>
-            <!-- end bg-color -->
-            <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
-            <!-- end brand -->
-            <h5>Coddle Mobile App</h5>
-            <small>IOS, APP, CODEX</small> </a></figcaption>
-        </figure>
-      </div>
-      <!-- end grid-item -->
-      <div class="grid-item three">
-        <figure class="reveal-effect se2-white wow perspective-box"><img src="images/works03.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works03.jpg">
-            <div class="bg-color" data-background="#6dd7a9"></div>
-            <!-- end bg-color -->
-            <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
-            <!-- end brand -->
-            <h5>Coddle Mobile App</h5>
-            <small>VIDEO, WEB, UI-UX</small> </a></figcaption>
-        </figure>
-      </div>
-      <!-- end grid-item -->
-      <div class="grid-item">
-        <figure class="reveal-effect se2-white wow perspective-box"><img src="images/works04.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works04.jpg">
-            <div class="bg-color" data-background="#2d2d2f"></div>
-            <!-- end bg-color -->
-            <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
-            <!-- end brand -->
-            <h5>Coddle Mobile App</h5>
-            <small>VIDEO, OTHERS</small> </a> </figcaption>
-        </figure>
-      </div>
-      <!-- end grid-item -->
-      <div class="grid-item">
-        <figure class="reveal-effect se2-white wow perspective-box"><img src="images/works06.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works06.jpg">
-            <div class="bg-color" data-background="#fec520"></div>
-            <!-- end bg-color -->
-            <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
-            <!-- end brand -->
-            <h5>Coddle Mobile App</h5>
-            <small>ANDROID, APP</small> </a></figcaption>
-        </figure>
-      </div>
-      <!-- end grid-item -->
-      <div class="grid-item-double">
-        <figure class="reveal-effect se2-white wow perspective-box"><img src="images/works05.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works05.jpg">
-            <div class="bg-color" data-background="#9f7cb2"></div>
-            <!-- end bg-color -->
-            <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
-            <!-- end brand -->
-            <h5>Coddle Mobile App</h5>
-            <small>AD, PRINT, DESIGN</small></a> </figcaption>
-        </figure>
-      </div>
-      <!-- end grid-item -->
-      <div class="grid-item">
-        <figure class="reveal-effect se2-white wow perspective-box"><img src="images/works07.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works07.jpg">
-            <div class="bg-color" data-background="#e0b990"></div>
-            <!-- end bg-color -->
-            <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
-            <!-- end brand -->
-            <h5>Coddle Mobile App</h5>
-            <small>WEB, HTML, CSS</small></a> </figcaption>
-        </figure>
-      </div>
-      <!-- end grid-item -->
-      <div class="grid-item">
-        <figure class="reveal-effect se2-white wow perspective-box"><img src="images/works08.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works08.jpg">
-            <div class="bg-color" data-background="#338da5"></div>
-            <!-- end bg-color -->
-            <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
-            <!-- end brand -->
-            <h5>Coddle Mobile App</h5>
-            <small>UI-UX, WP, JQUERY</small></a> </figcaption>
-        </figure>
-      </div>
-      <!-- end grid-item -->
-      <div class="grid-item-double">
-        <figure class="reveal-effect se2-white wow perspective-box"><img src="images/works09.jpg" alt="Image">
-          <figcaption> <a data-fancybox="gallery" href="images/works09.jpg">
-            <div class="bg-color" data-background="#282c37"></div>
-            <!-- end bg-color -->
-            <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
-            <!-- end brand -->
-            <h5>Coddle Mobile App</h5>
-            <small>ANDROID, APP, CODEX</small></a> </figcaption>
-        </figure>
-      </div>
+	</c:forEach>
+
       <!-- end grid-item --> 
     </div>
     <!-- end works --> 

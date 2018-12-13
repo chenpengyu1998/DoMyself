@@ -36,6 +36,11 @@ public class Pic {
 	public void setMessageid(String messageid) {
 		this.messageid = messageid;
 	}
+	@Override
+	public String toString() {
+		return "Pic [pictureurl=" + pictureurl + ", messageid=" + messageid + ", picturename=" + picturename
+				+ ", picturemessage=" + picturemessage + ", username=" + username + "]";
+	}
 	
 	
 }

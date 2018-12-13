@@ -3,6 +3,7 @@ package org.DoMyself.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -49,8 +50,12 @@ public class UploadController {
 	                try {  
 	                    //拿到输出流，同时重命名上传的文件  
 	                	//request.getSession().getServletContext().getRealPath("/")+"UerPic/" 
-	                	String PicURL =  "E:/JAVA_web/DoMyself/WebContent/UserPic/"  +  username +"/"+ files[i].getOriginalFilename();
-	                	File file = new File( "E:/JAVA_web/DoMyself/WebContent/UserPic"+"/"+username);
+	                	String PicURL =  request.getSession().getServletContext().getRealPath("\\")+"\\UserPic\\"  +  username +"\\"+ files[i].getOriginalFilename();
+	                	File file = new File( request.getSession().getServletContext().getRealPath("\\")+"\\UserPic"+"\\"+username);
+	                	//String PicURL = "E:\\JAVA_web\\DoMyself\\WebContent\\UserPic\\" + username +"\\"+ files[i].getOriginalFilename();
+	                	//File file = new File("E:\\JAVA_web\\DoMyself\\WebContent\\UserPic"+"\\"+username);
+	                	System.out.println("fileDir: "+request.getSession().getServletContext().getRealPath("\\")+"\\UserPic"+"\\"+username);
+	                	System.out.println("PICURL: "+PicURL);
 	                	if(!file.exists()) {
 	                		file.mkdir();
 	                	}
@@ -58,11 +63,11 @@ public class UploadController {
 	                	//PicURL = "UserPic/" + username + files[i].getOriginalFilename();
 	                    FileOutputStream os = new FileOutputStream(PicURL);  
 	                    //拿到上传文件的输入流  
-	                    FileInputStream in = (FileInputStream) files[i].getInputStream();  
+	                    InputStream in = files[i].getInputStream();  
 	                    Pic pic = new Pic();
 	                    pic.setPicturename(workname);
 	                    pic.setPicturemessage(showword);
-	                    pic.setPictureurl(PicURL);
+	                    pic.setPictureurl("UserPic\\"  +  username +"\\"+ files[i].getOriginalFilename());
 	                    pic.setUsername(username);
 	                    pic.setMessageid(dateString);
 	                    PicDao.insertPic(pic);
