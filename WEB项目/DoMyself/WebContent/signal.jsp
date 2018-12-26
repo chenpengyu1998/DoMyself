@@ -1,6 +1,7 @@
-﻿<%@page import="java.net.URLDecoder"%>
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLDecoder,org.DoMyself.entity.Pic" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,11 +30,30 @@
 <link rel="stylesheet" href="css/fancybox.min.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
+
+
+<!--è¯è®º-->
+<link rel="stylesheet" href="css/semantic.css" type="text/css" />
+<link rel="stylesheet" href="css/zyComment.css" type="text/css" />
+
+<style type="text/css" media="print, screen">  
+label {
+  font-weight: bold;
+}
+
+a {
+  font-family: Microsoft YaHei;
+}
+
+#articleComment {
+  width: 600px;
+  margin:0 auto;
+}
+</style> 
+
+
 </head>
 <body>
-
- 
-
 <div class="preloader"> <img src="images/preloader.gif" alt="Image">
   <ul class="text-rotater">
     <li>稍等</li>
@@ -42,6 +62,8 @@
   </ul>
 </div>
 <!-- end preloader -->
+<div class="transition-overlay"></div>
+<!-- end transition-overlay -->
 <div class="transition-overlay"></div>
 <!-- end transition-overlay -->
 <main>
@@ -92,8 +114,10 @@
     <!-- end hamburger -->
     <div class="equalizer"> <span></span> <span></span> <span></span> <span></span> </div>
     <!-- end equalizer -->
+
   </header>
-    <ul class="social-bar">
+
+  <ul class="social-bar">
      <li><a href="#">1</a></li>
      <li><a href="#">2</a></li>
      <li><a href="#">3</a></li>
@@ -104,55 +128,68 @@
       <video src="videos/video.mp4" muted autoplay loop></video>
     </div>
     <!-- end video-bg -->
-	<%
-		String name = "游客";
-		Cookie[] cookies = request.getCookies();
-		for(Cookie cookie : cookies){
-			if(cookie.getName().equals("username")){
-				name = cookie.getValue();
-			}
-		}
-	%>
 
-    <!--大标题-->
+
+  <div class="inner">
+    <h2>HELLO!</h2>
+  </div>
     <div class="inner">
+    <h2>欢迎来到Do Myself</h2>
+  </div>
+       <div class="inner">
       <a href="signal.html"><img src="images/default (2).jpg"></a>
-      <span><h3><b><a href="signal.html"><%=name %></a></b></h3></span>
+      <span><h3><b><a href="signal.html">${pic.username }</a></b></h3></span>
       <span><h4>Do.Myself 做自己</h4></span>
     </div>
+  
+  
+  
+  
+  
     <!-- end inner --> 
   </section>
   <!-- end int-hero -->
-  <section class="content">
+  
+
+
+
+
+<section class="content">
     <div class="works">
       <div class="grid-sizer"></div>
       <!-- end grid-sizer -->
-	
-	
-
-
-      <!--图区-->
-	<c:forEach items="${pics }" var="i">
+      <!--å¾åº-->
       <div class="grid-item-double one">
-        <figure class="reveal-effect se2-white wow perspective-box">
-        <img src="${i.pictureurl}" alt="ERROR">
-          <figcaption><a data-fancybox="gallery" href="${i.pictureurl}">
-            <div class="bg-color" data-background="#2095f4"></div>
+        <figure class="reveal-effect se2-white wow perspective-box"> <img src="${pic.pictureurl}" alt="Image">
+          <figcaption> <a data-fancybox="gallery" href="${pic.pictureurl}"></a>
+            <div class="bg-color" data-background="#8b81c3"></div>
             <!-- end bg-color -->
             <div class="brand"> <img src="images/logo.png" alt="Image"> </div>
             <!-- end brand -->
-            <h5>${i.picturename}</h5>
-            
-            <small>${i.picturemessage}</small> </a> </figcaption>
         </figure>
-        <a href="signalController?mid=${i.messageid }">查看详情</a>
       </div>
-	</c:forEach>
-
+      <!-- end grid-item -->
+     <div class="text">
+      <h2 class="text-head"><b>${pic.picturename}</b></h2>
+      <p class="text-index">${pic.picturemessage}</p>
+      <p class="text-foot"><b>${pic.messageid}</b></p>
+     </div>
       <!-- end grid-item --> 
     </div>
     <!-- end works --> 
-  </section>
+
+
+
+
+<!--ç¹èµè¯è®º-->
+  <div id="articleComment"></div>
+</section>
+
+
+
+
+
+
   <!-- end content --> 
 </main>
 <div class="footer-spacing"></div>
@@ -160,7 +197,7 @@
 <footer class="footer"> <img src="images/logo.png" alt="Image">
   <h2>Do . Myself</h2>
 
-  <div class="footer-bar"> <span class="pull-left"></span> <span class="pull-right">Site created by Stefan</span> </div>
+   <div class="footer-bar"> <span class="pull-right">Site created by Stefan</span> </div>
   <!-- end footer-bar --> 
 </footer>
 <!-- end footer -->
@@ -187,5 +224,33 @@
 <script src="js/wow.min.js"></script> 
 <script src="js/perspective.min.js"></script> 
 <script src="js/scripts.js"></script>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/zyComment.js"></script>
+  
+  <script type="text/javascript">
+  
+    var agoComment = [
+                      {"id":1,"userName":"æ¸¸å®¢1","time":"2014-04-04","sortID":0,"content":"ç¬¬ä¸æ¡è¯è®º"},
+                     ];
+    $("#articleComment").zyComment({
+      "width":"355",
+      "height":"33",
+      "agoComment":agoComment,
+      "callback":function(comment){
+        console.info("å¡«ååå®¹è¿åå¼ï¼");
+        console.info(comment);
+
+        // æ·»å æ°çè¯è®º
+        $("#articleComment").zyComment("setCommentAfter",{"id":123, "name":"nAAAAAme", "content":"coOOOntent", "time":"20111114-04-14"});
+
+      }
+    });
+    
+    
+  
+  </script>
+
+
 </body>
 </html>
