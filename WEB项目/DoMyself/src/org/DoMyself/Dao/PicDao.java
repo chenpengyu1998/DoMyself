@@ -24,6 +24,12 @@ public class PicDao {
 		return pics;
 		
 	}
+	public static Pic selectPicBymid(String mid) {
+		String sql = "select * from picturetable where messageid=?";
+		JdbcTemplate jdbcTemplate = MyJdbcTemplate.getJdbcTemplate();
+		Pic pic = jdbcTemplate.queryForObject(sql,new MyRowMapperForPic() ,mid);
+		return pic;
+	}
 	
 	
 }
