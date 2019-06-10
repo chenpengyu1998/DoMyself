@@ -131,35 +131,38 @@
       &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
       &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
       &nbsp;
-        <select name="selectAge" id="selectAge"
-        style="height:36px;font-size:1.3em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
-        appearance:none; -moz-appearance:none;-webkit-appearance:none">   
-          <option value="1">---色系---</option>   
-          <option value="2">浅色系</option>   
-          <option value="3">黑色系</option>   
-          <option value="4">红色系</option>   
-          <option value="5">其他</option>     
-        </select> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-
-        <select name="selectAge" id="selectAge"
-        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
-        appearance:none; -moz-appearance:none;-webkit-appearance:none">  
-          <option value="1">---风格---</option>   
-          <option value="2">潮流</option>   
-          <option value="3">国画</option>   
-          <option value="4">写实</option>   
-          <option value="5">漫画</option>     
-        </select> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-
-        <select name="selectAge" id="selectAge"
-        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
-        appearance:none; -moz-appearance:none;-webkit-appearance:none">  
-          <option value="1">---单位---</option>   
-          <option value="2">个人</option>   
-          <option value="3">工作室</option>      
-        </select>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-
-        <button type="submit" style="height:25px;font-size:1.1em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;">submit</button>
+      	<form action="userTag" method="post">
+	        <select name="selectAge1" id="selectAge1"
+	        style="height:36px;font-size:1.3em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
+	        appearance:none; -moz-appearance:none;-webkit-appearance:none">   
+	          <option value="null">---色系---</option>   
+	          <option value="1">浅色系</option>   
+	          <option value="2">黑色系</option>   
+	          <option value="3">红色系</option>   
+	          <option value="4">其他</option>     
+	        </select> 
+        
+			&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+	        <select name="selectAge2" id="selectAge2"
+	        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
+	        appearance:none; -moz-appearance:none;-webkit-appearance:none">  
+	          <option value="null">---风格---</option>   
+	          <option value="1">潮流</option>   
+	          <option value="2">国画</option>   
+	          <option value="3">写实</option>   
+	          <option value="4">漫画</option>     
+	        </select> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+	
+	        <select name="selectAge3" id="selectAge3"
+	        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
+	        appearance:none; -moz-appearance:none;-webkit-appearance:none">  
+	          <option value="null">---单位---</option>   
+	          <option value="1">个人</option>   
+	          <option value="2">工作室</option>      
+	        </select>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+		
+        	<button type="submit" style="height:25px;font-size:1.1em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;">提交</button>
+        </form>
       </span>
     </div>
     <!-- end inner --> 

@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.DoMyself.Dao.PicDao;
+import org.DoMyself.Dao.UserDao;
 import org.DoMyself.entity.Pic;
+import org.DoMyself.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class anchorController {
@@ -39,7 +42,24 @@ public class anchorController {
 		}
 	}
 	
-	
+	@RequestMapping("/userTag")
+	public static String userTag(HttpServletRequest request, HttpServletResponse response,@RequestParam("selectAge1") String usertag1 ,@RequestParam("selectAge2") String usertag2 ,@RequestParam("selectAge3") String usertag3 ) {
+		String username = "游客";
+		Cookie[] cookies = request.getCookies();
+		if(cookies!=null) {
+			for(Cookie cookie : cookies) {
+				if(cookie.getName().equals("username")) {
+					username = cookie.getValue();
+				}
+			}
+		}
+		User u = UserDao.findUserByUsername(username);
+		u.setUsertag1(usertag1);
+		u.setUsertag2(usertag2);
+		u.setUsertag3(usertag3);
+		UserDao.updateUserTag(u);
+		return "init";
+	}
 	
 	
 	
