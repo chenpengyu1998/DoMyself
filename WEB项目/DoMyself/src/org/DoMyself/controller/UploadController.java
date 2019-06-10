@@ -22,7 +22,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class UploadController {
 	
 	@RequestMapping("/uploadPic")
-	public static String uploadPic(@RequestParam("workname") String workname, @RequestParam("url") CommonsMultipartFile[] files,@RequestParam("showword") String showword,HttpServletRequest request,HttpServletResponse response) {
+	public static String uploadPic(@RequestParam("workname") String workname, @RequestParam("url") CommonsMultipartFile[] files,@RequestParam("showword") String showword,HttpServletRequest request,HttpServletResponse response,@RequestParam("selectAge1") String tag1,@RequestParam("selectAge2") String tag2,@RequestParam("selectAge3") String tag3) {
 		
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyMMddHHmmss");
@@ -36,12 +36,13 @@ public class UploadController {
 			 	System.out.println("fileName---------->" + files[i].getOriginalFilename());  
 	            String username = null ;
 	            Cookie[] cookies = request.getCookies();
-	            for(Cookie cookie : cookies) {
-	            	if(cookie.getName().equals("username")) {
-	            		username = cookie.getValue();
-	            	}
+	            if(cookies != null) {
+		            for(Cookie cookie : cookies) {
+		            	if(cookie.getName().equals("username")) {
+		            		username = cookie.getValue();
+		            	}
+		            }
 	            }
-	            
 	            
 	            
 	            
@@ -49,18 +50,16 @@ public class UploadController {
 	                int pre = (int) System.currentTimeMillis();  
 	                try {  
 	                    //拿到输出流，同时重命名上传的文件  
-	                	//request.getSession().getServletContext().getRealPath("/")+"UerPic/" 
+	                	
 	                	String PicURL =  request.getSession().getServletContext().getRealPath("\\")+"\\UserPic\\"  +  username +"\\"+ files[i].getOriginalFilename();
 	                	File file = new File( request.getSession().getServletContext().getRealPath("\\")+"\\UserPic"+"\\"+username);
-	                	//String PicURL = "E:\\JAVA_web\\DoMyself\\WebContent\\UserPic\\" + username +"\\"+ files[i].getOriginalFilename();
-	                	//File file = new File("E:\\JAVA_web\\DoMyself\\WebContent\\UserPic"+"\\"+username);
+
 	                	System.out.println("fileDir: "+request.getSession().getServletContext().getRealPath("\\")+"\\UserPic"+"\\"+username);
 	                	System.out.println("PICURL: "+PicURL);
 	                	if(!file.exists()) {
 	                		file.mkdir();
 	                	}
 	                	
-	                	//PicURL = "UserPic/" + username + files[i].getOriginalFilename();
 	                    FileOutputStream os = new FileOutputStream(PicURL);  
 	                    //拿到上传文件的输入流  
 	                    InputStream in = files[i].getInputStream();  
@@ -70,6 +69,12 @@ public class UploadController {
 	                    pic.setPictureurl("UserPic\\"  +  username +"\\"+ files[i].getOriginalFilename());
 	                    pic.setUsername(username);
 	                    pic.setMessageid(dateString);
+	                    pic.setTag1(tag1);
+	                    pic.setTag2(tag2);
+	                    pic.setTag3(tag3);
+	                    pic.setTag1heat(0);
+	                    pic.setTag2heat(0);
+	                    pic.setTag3heat(0);
 	                    PicDao.insertPic(pic);
 	                    //以写字节的方式写文件  
 	                    int b = 0;  
@@ -81,7 +86,7 @@ public class UploadController {
 	                    in.close();  
 	                    int finaltime = (int) System.currentTimeMillis();  
 	                    System.out.println(finaltime - pre);  
-	                       
+	                    
 	                } catch (Exception e) {  
 	                    e.printStackTrace();  
 	                    System.out.println("上传出错");  
@@ -89,7 +94,7 @@ public class UploadController {
 	            }  
 	        }  
 		
-		return "index.jsp";
+		return "init";
 	}
 	
 	

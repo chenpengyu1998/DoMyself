@@ -107,9 +107,11 @@
 	<%
 		String name = "游客";
 		Cookie[] cookies = request.getCookies();
-		for(Cookie cookie : cookies){
-			if(cookie.getName().equals("username")){
-				name = cookie.getValue();
+		if(cookies != null){
+			for(Cookie cookie : cookies){
+				if(cookie.getName().equals("username")){
+					name = cookie.getValue();
+				}
 			}
 		}
 	%>
@@ -118,7 +120,47 @@
     <div class="inner">
       <a href="signal.html"><img src="images/default (2).jpg"></a>
       <span><h3><b><a href="signal.html"><%=name %></a></b></h3></span>
-      <span><h4>Do.Myself 做自己</h4></span>
+      <span><h4>Do.Myself 做自己</h4>
+      </span>
+      <br/>
+      <a href="upload.jsp"><button color="blue">upload</button></a>
+      <br/>
+      
+      
+      <span>
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+      &nbsp;
+        <select name="selectAge" id="selectAge"
+        style="height:36px;font-size:1.3em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
+        appearance:none; -moz-appearance:none;-webkit-appearance:none">   
+          <option value="1">---色系---</option>   
+          <option value="2">浅色系</option>   
+          <option value="3">黑色系</option>   
+          <option value="4">红色系</option>   
+          <option value="5">其他</option>     
+        </select> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+
+        <select name="selectAge" id="selectAge"
+        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
+        appearance:none; -moz-appearance:none;-webkit-appearance:none">  
+          <option value="1">---风格---</option>   
+          <option value="2">潮流</option>   
+          <option value="3">国画</option>   
+          <option value="4">写实</option>   
+          <option value="5">漫画</option>     
+        </select> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <select name="selectAge" id="selectAge"
+        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;
+        appearance:none; -moz-appearance:none;-webkit-appearance:none">  
+          <option value="1">---单位---</option>   
+          <option value="2">个人</option>   
+          <option value="3">工作室</option>      
+        </select>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button type="submit" style="height:25px;font-size:1.1em;border: solid 1px #000; border-radius:5px; background-color:#191919;color:white;">submit</button>
+      </span>
     </div>
     <!-- end inner --> 
   </section>

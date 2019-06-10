@@ -20,9 +20,11 @@ public class anchorController {
 	public static void init(HttpServletRequest request, HttpServletResponse response) {
 		String username = "游客";
 		Cookie[] cookies = request.getCookies();
-		for(Cookie cookie : cookies) {
-			if(cookie.getName().equals("username")) {
-				username = cookie.getValue();
+		if(cookies!=null) {
+			for(Cookie cookie : cookies) {
+				if(cookie.getName().equals("username")) {
+					username = cookie.getValue();
+				}
 			}
 		}
 		List<Pic> pics= PicDao.selectPic(username);

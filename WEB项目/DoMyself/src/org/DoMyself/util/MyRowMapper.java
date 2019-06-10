@@ -18,8 +18,10 @@ public class MyRowMapper implements RowMapper<User> {
 		user.setPassword(rs.getString("password"));
 		user.setEmail(rs.getString("email"));
 		user.setPhonenum(rs.getString("phonenum"));
-		
-		
+		user.setUsertag1(rs.getString("usertag1"));
+		user.setUsertag2(rs.getString("usertag2"));
+		user.setUsertag3(rs.getString("usertag3"));
+		user.setFriendid(rs.getInt("friendid"));
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		

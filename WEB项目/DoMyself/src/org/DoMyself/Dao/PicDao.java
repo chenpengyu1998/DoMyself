@@ -11,11 +11,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class PicDao {
 	public static void insertPic(Pic pic) {
-		String sql = "INSERT INTO picturetable(pictureurl,picturename,picturemessage,username,messageid) VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO picturetable(pictureurl,picturename,picturemessage,username,messageid,tag1,tag2,tag3,tag1heat,tag2heat,tag3heat,picheat) VALUES(?,?,?,?,?,?,?,?,0,0,0,0)";
 		
 		
 		JdbcTemplate jdbcTemplate = MyJdbcTemplate.getJdbcTemplate();
-		jdbcTemplate.update(sql,pic.getPictureurl(),pic.getPicturename(),pic.getPicturemessage(),pic.getUsername(),pic.getMessageid());
+		jdbcTemplate.update(sql,pic.getPictureurl(),pic.getPicturename(),pic.getPicturemessage(),pic.getUsername(),pic.getMessageid(),pic.getTag1(),pic.getTag2(),pic.getTag3());
 	}
 	public static List<Pic> selectPic(String username) {
 		String sql = "select * from picturetable where username=?";

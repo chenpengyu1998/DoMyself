@@ -104,22 +104,24 @@
 
 
 	<%
-		String username="游客";
+		String name = "游客";
 		Cookie[] cookies = request.getCookies();
-		for(Cookie cookie : cookies){
-			if(cookie.getName().equals("username")){
-				username = cookie.getValue();
+		if(cookies != null){
+			for(Cookie cookie : cookies){
+				if(cookie.getName().equals("username")){
+					name = cookie.getValue();
+				}
 			}
 		}
-		
 	%>
+
 
 
 
 
   <div class="inner">
       <a href="signal.html"><img src="images/default (2).jpg"></a>
-      <span id="username"><h3><b><a href="signal.html"><%=username %></a></b></h3></span>
+      <span id="username"><h3><b><a href="signal.html"><%=name %></a></b></h3></span>
       <span id="userline"><h4>Do.Myself 做自己</h4></span>
   </div>
   <!-- end inner --> 
@@ -240,10 +242,46 @@
           </article>
         </section>
 
+      <spen>
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+      <!--  上传标签    -->
+        <select name="selectAge1" id="selectAge1"
+        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color: black;color:white;
+        appearance:none; -moz-appearance:none;-webkit-appearance:none">   
+          <option value="null" selected="selected">---色系---</option>   
+          <option value="1">浅色系</option>   
+          <option value="2">黑色系</option>   
+          <option value="3">红色系</option>   
+          <option value="4">其他</option>     
+        </select> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+
+        <select name="selectAge2" id="selectAge2"
+        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color: black;color:white;
+        appearance:none; -moz-appearance:none;-webkit-appearance:none">  
+          <option value="null" selected="selected">---风格---</option>   
+          <option value="1">潮流</option>   
+          <option value="2">国画</option>   
+          <option value="3">写实</option>   
+          <option value="4">漫画</option>     
+        </select> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <select name="selectAge3" id="selectAge3"
+        style="height:36px;font-size:1.5em;border: solid 1px #000; border-radius:5px; background-color: black;color:white;
+        appearance:none; -moz-appearance:none;-webkit-appearance:none">  
+          <option value="null" selected="selected">---单位---</option>   
+          <option value="1">个人</option>   
+          <option value="2">工作室</option>      
+        </select> 
+      </spen>
+
 
 
 
         <div class="form-group col-12 text-center">
+          <br><br><br>
+          <br>
           <button id="submit" type="submit" name="submit">发 表</button>
         </div>
         <!-- end form-group -->

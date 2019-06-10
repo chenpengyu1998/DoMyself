@@ -44,6 +44,23 @@ public class UserDao {
 		return user;
 	}
 	
+//	public static int updateUserTag(User u,String usertag1,String usertag2,String usertag3) {
+//		String sql ="update user set usertag1=?,usertag2=?,usertag3=? where username= ?";
+//		JdbcTemplate jdbc = MyJdbcTemplate.getJdbcTemplate();
+//		int row = jdbc.update(sql,usertag1,usertag2,usertag3,u.getUsername());
+//		return row;
+//	}
+	public static int updateUserTag(User u) {
+		String sql ="update user set usertag1=?,usertag2=?,usertag3=? where username= ?";
+		JdbcTemplate jdbc = MyJdbcTemplate.getJdbcTemplate();
+		int row = jdbc.update(sql,u.getUsertag1(),u.getUsertag2(),u.getUsertag3(),u.getUsername());
+		return row;
+	}
+	
+	
+	
+	
+	
 	
 	
 }

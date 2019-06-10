@@ -8,11 +8,12 @@ public class User {
 	private String password;
 	private String email;
 	private String phonenum;
+	private int friendid;
+	private String usertag1;
+	private String usertag2;
+	private String usertag3;
 	private Date registeredtimedate = new Date();
-	private String sex;
-	private Date birthday;
-	private String headshot;
-	private String signature;
+
 	
 	private Date registeredtime;
 	
@@ -60,39 +61,47 @@ public class User {
 	public void setRegisteredtimedate(Date registeredtimedate) {
 		this.registeredtimedate = registeredtimedate;
 	}
-	public String getSex() {
-		return sex;
+
+	public int getFriendid() {
+		return friendid;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+
+	public void setFriendid(int friendid) {
+		this.friendid = friendid;
 	}
-	public Date getBirthday() {
-		return birthday;
+
+	public String getUsertag1() {
+		return usertag1;
 	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+
+	public void setUsertag1(String usertag1) {
+		this.usertag1 = usertag1;
 	}
-	public String getHeadshot() {
-		return headshot;
+
+	public String getUsertag2() {
+		return usertag2;
 	}
-	public void setHeadshot(String headshot) {
-		this.headshot = headshot;
+
+	public void setUsertag2(String usertag2) {
+		this.usertag2 = usertag2;
 	}
-	public String getSignature() {
-		return signature;
+
+	public String getUsertag3() {
+		return usertag3;
 	}
-	public void setSignature(String signature) {
-		this.signature = signature;
+
+	public void setUsertag3(String usertag3) {
+		this.usertag3 = usertag3;
 	}
 
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", email=" + email
-				+ ", phonenum=" + phonenum + ", registeredtimedate=" + registeredtimedate + ", sex=" + sex
-				+ ", birthday=" + birthday + ", headshot=" + headshot + ", signature=" + signature + ", registeredtime="
-				+ registeredtime + "]";
+				+ ", phonenum=" + phonenum + ", friendid=" + friendid + ", usertag1=" + usertag1 + ", usertag2="
+				+ usertag2 + ", usertag3=" + usertag3 + ", registeredtimedate=" + registeredtimedate
+				+ ", registeredtime=" + registeredtime + "]";
 	}
-	
+
 	
 	
 	
