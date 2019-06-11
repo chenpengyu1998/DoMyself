@@ -50,7 +50,7 @@
   	<li><br><br><br></li>
     <li><a href="index.jsp">主页</a> </li>
     <li><a href="init">我的</a> </li>
-    <li><a href="showcase.html">社区</a> </li>
+    <li><a href="showcase">社区</a> </li>
     <li><a href="journal.html">ID<span>BETA</span></a> </li>
     <li><a href="login.jsp">Say Hello</a> </li>
     <li><a href="builder.html">制作人员</a> </li>

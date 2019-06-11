@@ -31,5 +31,18 @@ public class PicDao {
 		return pic;
 	}
 	
+	public static List<Pic> selectAllPic(){
+		String sql = "select * from picturetable";
+		JdbcTemplate jdbc = MyJdbcTemplate.getJdbcTemplate();
+		List<Pic> pics = jdbc.query(sql, new MyRowMapperForPic());
+		
+		return pics;
+	}
+	public static int updateTagHeat(Pic p) {
+		String sql = "update picturetable set tag1heat=?,tag2heat=?,tag3heat=? where messageid=?";
+		JdbcTemplate jdbc = MyJdbcTemplate.getJdbcTemplate();
+		int row = jdbc.update(sql,p.getTag1heat(),p.getTag2heat(),p.getTag3heat(),p.getMessageid());
+		return row;
+	}
 	
 }

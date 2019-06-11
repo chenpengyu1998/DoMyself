@@ -31,6 +31,7 @@ public class anchorController {
 			}
 		}
 		List<Pic> pics= PicDao.selectPic(username);
+		
 		request.setAttribute("pics", pics);
 		try {
 			request.getRequestDispatcher("anchor.jsp").forward(request, response);
