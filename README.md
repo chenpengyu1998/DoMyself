@@ -35,7 +35,7 @@ DoMySelf是一个集社区服务，电子商务，网络零售的一个文化性
 
 </p>
 <p>
-<img src="./image/4.png" width=250 height=400 />
+<img src="/image/4.png" width=250 height=400 />
 <img src="./image/5.png" width=250 height=400 />
 <img src="./image/6.png" width=250 height=400 />
 </p>
